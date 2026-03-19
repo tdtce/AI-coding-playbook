@@ -1,0 +1,7 @@
+{{ if .Site.Params.banner.enabled }}
+<div class="mh-4 mw8 center">
+    <p class="mv0 ph3 pv3 tc br3 {{ .Site.Params.banner.bg_color }}">
+      {{ .Site.Params.banner.text | safeHTML }}
+    </p>
+</div>
+{{ end }}

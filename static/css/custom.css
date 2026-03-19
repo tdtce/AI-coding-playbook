@@ -1,0 +1,139 @@
+/* === Book-like warm palette === */
+.bg-book {
+  background-color: #f5f0e8;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  letter-spacing: 0.01em;
+  color: #3d3529;
+}
+
+/* === Larger fonts === */
+.nested-copy-line-height {
+  font-size: 19px;
+  line-height: 1.75;
+}
+
+/* Homepage & list text */
+.pa4 p, .pa4 li {
+  font-size: 1.15rem;
+}
+
+/* Summary links on homepage */
+.pv1 a {
+  font-size: 1.15rem;
+}
+
+/* Section headings on homepage/list */
+h1 {
+  color: #2c2416;
+}
+
+h2 {
+  color: #4a3c28;
+}
+
+h3, h4, h5 {
+  color: #5a4a34;
+}
+
+/* === Code === */
+code, pre, .highlight code {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.875em;
+}
+
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+  background: #ece7dc;
+  border-radius: 4px;
+  border: 1px solid #ddd5c5;
+  color: #3d3529;
+}
+
+code {
+  background: #ece7dc;
+  padding: 0.15em 0.35em;
+  border-radius: 3px;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* === Article content width === */
+article .nested-copy-line-height {
+  max-width: 720px;
+}
+
+/* === Navigation === */
+nav a, .menu a {
+  font-family: 'Inter', sans-serif !important;
+  color: #4a3c28;
+}
+
+nav a:hover {
+  color: #8b6914;
+}
+
+/* Site title in nav */
+nav .f3 {
+  color: #2c2416 !important;
+}
+
+/* === Links === */
+.nested-links a {
+  color: #8b6914;
+}
+
+.nested-links a:hover {
+  color: #6b5010;
+}
+
+/* Summary links */
+.pv1 a.link {
+  color: #3d3529;
+}
+
+.pv1 a.link:hover {
+  color: #8b6914;
+}
+
+/* === Blockquotes === */
+blockquote {
+  border-left: 4px solid #c4a95a;
+  margin-left: 0;
+  padding: 0.5rem 1rem;
+  background: #ece7dc;
+}
+
+blockquote p {
+  margin: 0.25rem 0;
+  color: #4a3c28;
+}
+
+/* === Footer === */
+footer {
+  background-color: #ece7dc !important;
+}
+
+footer a {
+  color: #7a6b52 !important;
+}
+
+/* === Sidebar === */
+.bg-light-gray {
+  background-color: #ece7dc !important;
+}
+
+.bg-light-gray a {
+  color: #8b6914;
+}
+
+/* === Mid-gray text on warm bg === */
+.mid-gray {
+  color: #5a4a34 !important;
+}

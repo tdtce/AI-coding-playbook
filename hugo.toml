@@ -1,0 +1,26 @@
+baseURL = 'https://tdtce.github.io/AI-coding-playbook/'
+canonifyURLs = true
+languageCode = 'ru'
+title = 'AI Coding Playbook'
+theme = 'ananke'
+copyright = 'AI Coding Playbook'
+
+[pagination]
+pagerSize = 10000
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[params]
+recent_posts_number = 10000
+background_color_class = 'bg-book'
+body_classes = 'avenir bg-book'
+custom_css = ['css/custom.css']
+
+[params.banner]
+enabled = false
+
+[[menu.main]]
+name = 'Связаться'
+url = 'https://aihubteam.ru/'
+weight = 100
