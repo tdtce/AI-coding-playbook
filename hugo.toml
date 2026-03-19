@@ -1,4 +1,4 @@
-baseURL = 'https://tdtce.github.io/AI-coding-playbook/'
+baseURL = 'https://aicodingplaybook.ru/'
 canonifyURLs = true
 languageCode = 'ru'
 title = 'AI Coding Playbook'
