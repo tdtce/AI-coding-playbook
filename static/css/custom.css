@@ -84,6 +84,19 @@ nav .f3 {
   color: #2c2416 !important;
 }
 
+/* "Связаться" button in nav */
+nav[role="navigation"] > div > div > ul > li:last-child > a {
+  border: 1px solid #c4a95a;
+  border-radius: 4px;
+  padding: 0.5rem 1.25rem;
+  background: #f9f3e3;
+  color: #4a3c28 !important;
+}
+
+nav[role="navigation"] > div > div > ul > li:last-child > a:hover {
+  background: #f0e8d0;
+}
+
 /* === Links === */
 .nested-links a {
   color: #8b6914;
@@ -94,6 +107,10 @@ nav .f3 {
 }
 
 /* Summary links */
+.section-page {
+  margin-left: 1.5rem;
+}
+
 .pv1 a.link {
   color: #3d3529;
 }
@@ -133,7 +150,237 @@ footer a {
   color: #8b6914;
 }
 
+/* ToC font size = same as navigation links (f5 / 1rem) */
+#TableOfContents,
+#TableOfContents ul,
+#TableOfContents li,
+#TableOfContents a {
+  font-size: 1rem !important;
+  line-height: 1.5;
+}
+
 /* === Mid-gray text on warm bg === */
 .mid-gray {
   color: #5a4a34 !important;
+}
+
+/* === Mobile adaptations === */
+@media screen and (max-width: 60em) {
+
+  /* Navigation sidebar above content on mobile */
+  article.flex-l {
+    display: flex;
+    flex-direction: column;
+  }
+
+  article.flex-l > header {
+    order: 1;
+  }
+
+  article.flex-l > aside {
+    order: 2;
+  }
+
+  article.flex-l > .nested-copy-line-height {
+    order: 3;
+  }
+
+  /* Table of contents: sticky on top for mobile */
+  .table-of-contents {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #f5f0e8;
+    padding: 1rem;
+    margin: -1rem -1rem 1.5rem -1rem;
+    border-bottom: 2px solid #ddd5c5;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  .table-of-contents details {
+    margin: 0;
+  }
+
+  .table-of-contents summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #4a3c28;
+    list-style: none;
+    padding: 0.5rem;
+    user-select: none;
+  }
+
+  .table-of-contents summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .table-of-contents summary::before {
+    content: "▶ ";
+    display: inline-block;
+    transition: transform 0.2s;
+  }
+
+  .table-of-contents details[open] summary::before {
+    transform: rotate(90deg);
+  }
+
+  .table-of-contents ul {
+    margin: 0.5rem 0 0 1rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .table-of-contents li {
+    margin: 0.25rem 0;
+    font-size: 0.95rem;
+  }
+
+  .table-of-contents a {
+    color: #8b6914;
+    text-decoration: none;
+  }
+
+  .table-of-contents a:hover {
+    color: #6b5010;
+    text-decoration: underline;
+  }
+
+  /* Reduce padding on mobile */
+  .pa3-ns {
+    padding: 1rem !important;
+  }
+
+  .pa4 {
+    padding: 1rem !important;
+  }
+
+  /* Better font sizes for mobile */
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .nested-copy-line-height {
+    font-size: 17px;
+  }
+
+  .pa4 p, .pa4 li {
+    font-size: 1rem;
+  }
+
+  /* Sidebar above content on mobile (not sticky) */
+  aside.w-30-l {
+    width: 100% !important;
+    margin-top: 0 !important;
+  }
+
+  aside .bg-light-gray {
+    border-radius: 0;
+    margin: 0 -1rem 1.5rem -1rem;
+    border-bottom: 2px solid #ddd5c5;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  /* Make article full width on mobile */
+  .w-two-thirds-l {
+    width: 100% !important;
+    padding-right: 0 !important;
+  }
+
+  /* Better code blocks on mobile */
+  pre {
+    font-size: 0.8rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    border-radius: 0;
+    padding: 0.75rem;
+  }
+
+  code {
+    font-size: 0.85rem;
+    word-wrap: break-word;
+  }
+
+  /* Better table overflow on mobile */
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    width: calc(100% + 2rem) !important;
+  }
+
+  /* Navigation improvements for mobile */
+  .flex-l {
+    flex-direction: column !important;
+  }
+
+  /* Make images responsive */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Better spacing for lists */
+  .nested-list-reset ul,
+  .nested-list-reset ol {
+    padding-left: 1.5rem;
+  }
+
+  /* Improve touch targets for links — only in main content */
+  article .nested-copy-line-height a {
+    min-height: 44px;
+    display: inline-block;
+    padding: 2px 0;
+  }
+
+  /* Center container adjustments */
+  .mw8 {
+    max-width: 100% !important;
+  }
+
+  .ph3 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Collapsible sidebar on mobile */
+  .mobile-collapsible summary {
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  .mobile-collapsible summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-collapsible summary::before {
+    content: "▼ ";
+    display: inline-block;
+    transition: transform 0.2s;
+  }
+
+  .mobile-collapsible[open] summary::before {
+    transform: rotate(0deg);
+  }
+
+  .mobile-collapsible:not([open]) summary::before {
+    transform: rotate(-90deg);
+  }
+
+  /* On desktop, always show content and hide summary */
+  @media screen and (min-width: 60em) {
+    .mobile-collapsible summary {
+      display: none !important;
+    }
+
+    .mobile-collapsible .details-content {
+      display: block !important;
+    }
+  }
 }

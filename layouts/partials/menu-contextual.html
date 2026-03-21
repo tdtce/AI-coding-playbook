@@ -1,16 +1,21 @@
-<div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
-  {{ if .Prev }}
-    <p class="f5"><span class="b mb3">Следующая</span></p>
-    <p class="f5"><a href="{{ .Prev.RelPermalink }}">{{ .Prev.Title }}</a></p>
-  {{ end }}
+<div class="bg-light-gray pa3 nested-list-reset nested-links">
+  <details class="mobile-collapsible" open>
+    <summary class="f5 b mb3 pointer">Навигация</summary>
+    <div class="details-content">
+      {{ if .Prev }}
+        <p class="f5"><span class="b mb3">Следующая</span></p>
+        <p class="f5"><a href="{{ .Prev.RelPermalink }}">{{ .Prev.Title }}</a></p>
+      {{ end }}
 
-  {{ if .Next }}
-    <p class="f5"><span class="b mb3">Предыдущая</span></p>
-    <p class="f5"><a href="{{ .Next.RelPermalink }}">{{ .Next.Title }}</a></p>
-  {{ end }}
+      {{ if .Next }}
+        <p class="f5"><span class="b mb3">Предыдущая</span></p>
+        <p class="f5"><a href="{{ .Next.RelPermalink }}">{{ .Next.Title }}</a></p>
+      {{ end }}
 
-  {{ if ge (len (.TableOfContents)) 33 -}}
-    <p class="f5 b mb3">Содержание</p>
-    {{ .TableOfContents }}
-  {{ end }}
+      {{ if ge (len (.TableOfContents)) 33 -}}
+        <p class="f5 b mb3">Содержание</p>
+        {{ .TableOfContents }}
+      {{ end }}
+    </div>
+  </details>
 </div>

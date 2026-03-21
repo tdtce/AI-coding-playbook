@@ -1,8 +1,9 @@
 ---
 title: "Продвинутые фишки"
+draft: false
 url: /advanced/advanced-features/
 date: 2025-01-01
-weight: 30
+weight: 40
 book_section: "Продвинутые паттерны"
 ---
 

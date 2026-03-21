@@ -1,8 +1,9 @@
 ---
 title: "Скиллы, плагины, субагенты"
+draft: false
 url: /advanced/skills-plugins-subagents/
 date: 2025-01-01
-weight: 10
+weight: 30
 book_section: "Скиллы и плагины"
 ---
 

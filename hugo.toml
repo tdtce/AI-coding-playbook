@@ -1,5 +1,6 @@
 baseURL = 'https://aicodingplaybook.ru/'
 canonifyURLs = true
+relativeURLs = false
 languageCode = 'ru'
 title = 'AI Coding Playbook'
 theme = 'ananke'
@@ -11,11 +12,16 @@ pagerSize = 10000
 [markup.goldmark.renderer]
 unsafe = true
 
+[markup.tableOfContents]
+endLevel = 2
+startLevel = 2
+
 [params]
 recent_posts_number = 10000
 background_color_class = 'bg-book'
 body_classes = 'avenir bg-book'
 custom_css = ['css/custom.css']
+favicon = '/favicon.ico'
 
 [params.banner]
 enabled = false

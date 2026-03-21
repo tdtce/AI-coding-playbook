@@ -1,9 +1,10 @@
 ---
 title: "Как включить сбор логов"
+draft: true
 url: /company/logging/
 date: 2025-01-01
 weight: 40
-book_section: "Мониторинг"
+book_section: "Внедрение в компанию"
 ---
 
 ## Зачем нужен сбор логов

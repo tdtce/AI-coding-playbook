@@ -3,47 +3,48 @@
   <section class="flex-ns flex-wrap justify-around mt1">
     <div class="relative mb4 pa4">
 
-      <img src="{{ relURL "images/print_machine.png" }}" alt="AI Coding Playbook" class="db mw6 center mb4" />
+      <img src="{{ relURL "images/print_machine.png" }}" alt="AI Coding Playbook" class="db mb4" style="max-width: 100%; height: auto;" />
 
       <h1>AI Coding Playbook</h1>
-      <p>
-        Практическое руководство по внедрению ИИ-инструментов для кодинга —
-        от личного использования до масштабирования на всю компанию.
+      <p class="f4 f5-m" style="word-wrap: break-word;">
+        Практическое руководство по внедрению ИИ-инструментов для кодинга в компанию.
       </p>
 
-      <h2 class="pt2">Почему меняется разработка</h2>
-      <p class="f5 moon-gray i">Раздел в процессе наполнения</p>
-
-      <h2 class="pt2">Личное использование</h2>
       {{ with .Site.GetPage "/personal" }}
+        {{ if .Pages }}
+        <h2 class="pt4">Личное использование</h2>
         {{ range .Pages }}
           {{ partial "summary.html" . }}
         {{ end }}
-      {{ end }}
-
-      <h2 class="pt2">Продвинутые техники</h2>
-      {{ with .Site.GetPage "/advanced" }}
-        {{ range .Pages }}
-          {{ partial "summary.html" . }}
         {{ end }}
       {{ end }}
 
-      <h2 class="pt2">Распространение на команду</h2>
       {{ with .Site.GetPage "/team" }}
+        {{ if .Pages }}
+        <h2 class="pt4">Уровень команды</h2>
         {{ range .Pages }}
           {{ partial "summary.html" . }}
         {{ end }}
+        {{ end }}
       {{ end }}
 
-      <h2 class="pt2">Распространение на компанию</h2>
       {{ with .Site.GetPage "/company" }}
+        {{ if .Pages }}
+        <h2 class="pt4">Уровень компании</h2>
         {{ range .Pages }}
           {{ partial "summary.html" . }}
         {{ end }}
+        {{ end }}
       {{ end }}
 
-      <h2 class="pt2">Частые проблемы и антипаттерны</h2>
-      <p class="f5 moon-gray i">Раздел в процессе наполнения</p>
+      {{ with .Site.GetPage "/advanced" }}
+        {{ if .Pages }}
+        <h2 class="pt4">Продвинутые техники</h2>
+        {{ range .Pages }}
+          {{ partial "summary.html" . }}
+        {{ end }}
+        {{ end }}
+      {{ end }}
 
 
     </div>
