@@ -3,7 +3,7 @@ title: "Начало работы с Claude Code"
 draft: false
 url: /personal/getting-started/
 date: 2025-01-01
-weight: 10
+weight: 20
 book_section: "Личное использование"
 ---
 

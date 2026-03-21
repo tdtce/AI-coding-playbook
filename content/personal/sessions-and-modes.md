@@ -3,7 +3,7 @@ title: "Сессии и режимы работы"
 draft: false
 url: /personal/sessions-and-modes/
 date: 2025-01-01
-weight: 14
+weight: 30
 book_section: "Личное использование"
 ---
 
