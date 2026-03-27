@@ -65,8 +65,13 @@ pre code {
 }
 
 /* === Article content width === */
-article .nested-copy-line-height {
-  max-width: 720px;
+article .nested-copy-line-height.w-two-thirds-l {
+  width: 78% !important;
+  max-width: none;
+  padding-right: 1rem !important;
+}
+article aside.w-30-l {
+  width: 20% !important;
 }
 
 /* === Navigation === */
