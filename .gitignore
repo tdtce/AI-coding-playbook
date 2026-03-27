@@ -4,4 +4,5 @@ resources/
 .idea/
 .hugo_build.lock
 /notion_dump/
-/.claude/
+/.claude/*
+!/.claude/skills/

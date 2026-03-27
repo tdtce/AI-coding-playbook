@@ -70,6 +70,7 @@ Claude Code может запускать субагентов — это отд
 ### Примеры
 
 - [copy-claude-response](https://github.com/Twizzes/copy-claude-response) — удобное копирование респонса Claude Code
+- [claude-hud](https://github.com/jarrodwatts/claude-hud) — симпатичный HUD с дополнительной информацией о сессии (от контекста и лимитов до используемых инструментов)
 - `superpowers@superpowers-marketplace`
 - `everything-claude-code@everything-claude-code`
 - `context7@claude-plugins-official`
