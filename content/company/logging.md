@@ -86,3 +86,57 @@ book_section: "Внедрение в компанию"
 ```bash
 schtasks /Create /SC DAILY /TN "ClaudeUsageUpload" /TR "\"C:\Python311\python.exe\" \"C:\absolute\path\to\claude_usage_client.py\" --dev-id {ваш логин}" /ST 12:00
 ```
+
+#### Пример для Mac OS через Launchd
+
+Создать файл `~/Library/LaunchAgents/com.claude.usage.plist` и заменить параметры на корректные:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN">
+<plist version="1.0">
+<dict>
+
+    <key>Label</key>
+    <string>com.claude.usage</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/FULL/PATH/claude_usage_client.py</string>
+        <string>--dev-id</string>
+        <string>{Ваш id}</string>
+        <string>--hostname</string>
+        <string>{название host-а}</string>
+    </array>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>12</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>StandardOutPath</key>
+    <string>/tmp/claude-usage.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/tmp/claude-usage.log</string>
+
+</dict>
+</plist>
+```
+
+Запустить задачу через терминал в автовыполнение:
+
+```bash
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.claude.usage.plist
+```
+
+При изменении задачи необходимо выполнить:
+
+```bash
+launchctl bootout gui/$(id -u)/com.claude.usage
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.claude.usage.plist
+```

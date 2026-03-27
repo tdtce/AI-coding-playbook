@@ -83,12 +83,17 @@ ALWAYS_BLOCK = {
     "pg_manage_users",
 }
 
-# SQL patterns that indicate mutation
+# pg_manage_query: allowed operations
+ALLOWED_QUERY_OPS = {"explain", "get_slow_queries", "get_stats"}
+BLOCKED_QUERY_OPS = {"reset_stats"}
+
+# SQL patterns that indicate mutation (for pg_execute_query, pg_execute_sql, pg_export_table_data)
 DANGEROUS_SQL = re.compile(
     r"\b(INSERT|UPDATE|DELETE|DROP|ALTER|CREATE|TRUNCATE|GRANT|REVOKE|"
     r"REPLACE|MERGE|UPSERT|COPY\s+.+\s+FROM|VACUUM\s+FULL|REINDEX)\b",
     re.IGNORECASE,
 )
+
 
 def deny(reason: str):
     print(json.dumps({
@@ -100,18 +105,24 @@ def deny(reason: str):
     }))
     sys.exit(0)
 
+
 def allow():
     sys.exit(0)
 
+
 def get_tool_short_name(tool_name: str) -> str:
+    """mcp__postgresql-mcp-cloud-statistics__pg_manage_users -> pg_manage_users"""
     parts = tool_name.split("__")
     return parts[-1] if parts else tool_name
 
+
 def extract_sql(tool_input: dict) -> str:
+    """Pull SQL from whichever field the tool uses."""
     for field in ("query", "sql", "statement"):
         if field in tool_input:
             return tool_input[field]
     return ""
+
 
 def main():
     data = json.load(sys.stdin)
@@ -119,11 +130,28 @@ def main():
     tool_input = data.get("tool_input", {})
     short_name = get_tool_short_name(tool_name)
 
+    # 1. Always safe
     if short_name in ALWAYS_ALLOW:
         allow()
+
+    # 2. Always blocked
     if short_name in ALWAYS_BLOCK:
         deny(f"Blocked: {short_name} is not allowed in read-only mode")
 
+    # 3. pg_manage_query — check operation
+    if short_name == "pg_manage_query":
+        op = tool_input.get("operation", "")
+        if op in BLOCKED_QUERY_OPS:
+            deny(f"Blocked: pg_manage_query operation '{op}' is not allowed")
+        if op in ALLOWED_QUERY_OPS:
+            if op == "explain":
+                sql = extract_sql(tool_input)
+                if DANGEROUS_SQL.search(sql):
+                    deny(f"Blocked: EXPLAIN on a mutation query is not allowed")
+            allow()
+        deny(f"Blocked: unknown pg_manage_query operation '{op}'")
+
+    # 4. pg_execute_query / pg_execute_sql / pg_export_table_data — check SQL
     if short_name in ("pg_execute_query", "pg_execute_sql", "pg_export_table_data"):
         sql = extract_sql(tool_input)
         if not sql.strip():
@@ -132,6 +160,7 @@ def main():
             deny(f"Blocked: mutation detected in {short_name}: {sql[:80]}...")
         allow()
 
+    # 5. Unknown tool — block by default (whitelist approach)
     deny(f"Blocked: unknown PostgreSQL tool '{short_name}'")
 
 if __name__ == "__main__":
@@ -151,6 +180,10 @@ if __name__ == "__main__":
 ![MCP CLI](../../static/images/mcp-cli.png)
 
 ---
+
+## Общий MCP-реджистри
+
+Существует проект [mcp-gateway-registry](https://github.com/agentic-community/mcp-gateway-registry), который позволяет централизованно управлять MCP-серверами в организации. Сейчас тестируем его у себя.
 
 ## Уровни настройки MCP
 

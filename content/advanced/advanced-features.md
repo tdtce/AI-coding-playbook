@@ -7,15 +7,19 @@ weight: 40
 book_section: "Продвинутые паттерны"
 ---
 
-## Ralph Loop и автономная работа
+## Автономная работа
 
-- [ralph](https://github.com/snarktank/ralph)
-- [get-shit-done](https://github.com/gsd-build/get-shit-done)
-- [helios](https://github.com/snoglobe/helios)
+Иногда хочется заставить Claude Code поработать автономно, без прерываний. Какие есть варианты?
 
-Раздел в разработке. Пока можно посмотреть доклад:
+- `claude --dangerously-skip-permissions -p` и в описание задачи вставить что-то типа "не останавливайся, пока все пункты из плана или чек-листа не выполнены"
+- Написать баш-скрипт с условиями или использовать команду `/loop`, чтобы Claude Code каждый n минут проверял текущее состояние файла с планом
+- Использовать специализированные фреймворки:
 
-[YouTube: Ralph Loop](https://www.youtube.com/watch?v=HBWI2cvYVCE&list=PL83wdqv6e7tkTeWB8etFmRwTJs0S8cFj2&index=10)
+  - [ralph](https://github.com/snarktank/ralph)
+  - [get-shit-done](https://github.com/gsd-build/get-shit-done)
+  - [helios](https://github.com/snoglobe/helios)
+
+> **Внимание:** Обратите особое внимание на вопросы безопасности при использовании ИИ-агентов в автономном сценарии! Особенно если вы не используете тим-план Claude Code.
 
 ---
 
