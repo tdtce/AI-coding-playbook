@@ -4,7 +4,7 @@ draft: false
 url: /advanced/model-selection/
 date: 2025-01-01
 weight: 1200
-book_section: "MCP и инструменты"
+book_section: "Выбор моделей и экономия"
 ---
 
 ## Как сэкономить?
