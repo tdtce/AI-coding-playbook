@@ -3,7 +3,7 @@ title: "Безопасность"
 draft: false
 url: /personal/security/
 date: 2025-01-01
-weight: 20
+weight: 900
 book_section: "Внедрение в компанию"
 ---
 

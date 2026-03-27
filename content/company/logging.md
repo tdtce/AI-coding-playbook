@@ -3,7 +3,7 @@ title: "Как включить сбор логов"
 draft: true
 url: /company/logging/
 date: 2025-01-01
-weight: 40
+weight: 1100
 book_section: "Внедрение в компанию"
 ---
 

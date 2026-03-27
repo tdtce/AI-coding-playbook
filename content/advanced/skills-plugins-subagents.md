@@ -3,7 +3,7 @@ title: "Скиллы, плагины, субагенты"
 draft: false
 url: /advanced/skills-plugins-subagents/
 date: 2025-01-01
-weight: 30
+weight: 1400
 book_section: "Скиллы и плагины"
 ---
 
@@ -13,9 +13,9 @@ book_section: "Скиллы и плагины"
 
 Вот [официальный гайд](https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf) по созданию скиллов.
 
-А вот неофициальный, но очень хороший гайд с советами от одного из сотрудников Anthropic: [Lessons from Building Claude Code: How We Use Skills](https://www.anthropic.com/engineering/claude-code-skills)
+А вот неофициальный, но очень хороший гайд с советами от одного из сотрудников Anthropic: [Lessons from Building Claude Code: How We Use Skills](https://x.com/trq212/status/2033949937936085378).
 
-### Встроенные команды
+### Полезные встроенные команды
 
 - `/simplify` — упрощение кода после сессии кодинга перед пулл-реквестом
 

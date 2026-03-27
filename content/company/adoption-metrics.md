@@ -3,7 +3,7 @@ title: "Метрики внедрения"
 draft: true
 url: /company/adoption-metrics/
 date: 2025-01-01
-weight: 10
+weight: 1000
 book_section: "Внедрение в компанию"
 ---
 
