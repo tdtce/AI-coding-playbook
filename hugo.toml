@@ -4,7 +4,7 @@ relativeURLs = false
 languageCode = 'ru'
 title = 'AI Coding Playbook'
 theme = 'ananke'
-copyright = 'AI Coding Playbook'
+copyright = 'AI HUB TEAM'
 
 [pagination]
 pagerSize = 10000
@@ -27,6 +27,11 @@ favicon = '/favicon.ico'
 enabled = false
 
 [[menu.main]]
+name = 'О проекте'
+url = '/about/'
+weight = 90
+
+[[menu.main]]
 name = 'Связаться'
-url = 'https://aihubteam.ru/'
+url = 'https://t.me/crazyfrogspb'
 weight = 100
