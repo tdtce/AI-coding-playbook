@@ -41,8 +41,12 @@ Repo-only files (most of them are inspired by Notion page 326237f382b88081a969d9
 
 ## Procedure
 
-### Step 1: Gather data (use subagents in parallel)
+### Step 1: Gather data
 
+**Option A (preferred): Notion ZIP export**
+Ask the user to export the Notion workspace as ZIP (or check if a ZIP file already exists in the project root). Unzip to `/tmp/claude/notion_export/`. Match files to repo by Notion page ID in the filename.
+
+**Option B: Notion MCP API**
 Launch subagents to fetch data concurrently:
 - **Subagent A:** For each mapped page, call `mcp__notionApi__API-get-block-children` with the page ID. For blocks with `has_children: true`, also fetch nested children. Record `last_edited_time`.
 - **Subagent B:** Read all corresponding repo markdown files.
@@ -55,7 +59,9 @@ For each page pair, identify all differences:
 - **ADDED_IN_NOTION** — new sections, callouts, code blocks, links in Notion not in repo
 - **UPDATED_IN_NOTION** — content that changed in Notion vs repo version
 - **ADDED_IN_REPO** — content in repo not in Notion (user may want to push to Notion)
-- **STRUCTURAL** — reordered sections, renamed headers
+- **STRUCTURAL** — reordered sections, renamed headers, content restructured or moved to a different file
+
+Before classifying something as ADDED_IN_REPO, grep the Notion export for key phrases — the content may exist on a different Notion page or in a restructured form. Similarly, before classifying as ADDED_IN_NOTION, grep the repo for key phrases — the content may already exist in a different repo file.
 
 Also identify:
 - New Notion pages with no repo counterpart
@@ -63,7 +69,9 @@ Also identify:
 
 ### Step 3: Interactive review (THIS IS THE KEY STEP)
 
-Present changes ONE BY ONE to the user. For each change:
+**CRITICAL: Present changes STRICTLY ONE BY ONE.** Do NOT batch or group multiple changes in one message. Show exactly one change, wait for user's decision, then show the next one.
+
+For each change:
 
 ```
 ---
@@ -92,6 +100,7 @@ Wait for user's decision before proceeding to the next change.
 - Group minor changes (typo fixes, formatting) and present them together
 - If there is company-specific content in Notion (Mattermost or repository links, internal team names, etc.), never include them in the public playbook. If you are unsure if the content is company-specific, ask user. For example, examples derived from the real work experience might be okay to include
 - Show the actual markdown diff / edit you plan to make before applying
+- Record all skipped changes to `.claude/sync_skipped.md` with page name and brief description, so they don't come up again in future syncs
 
 ### Step 4: Apply approved changes
 

@@ -71,6 +71,7 @@ Claude Code может запускать субагентов — это отд
 
 - [copy-claude-response](https://github.com/Twizzes/copy-claude-response) — удобное копирование респонса Claude Code
 - [claude-hud](https://github.com/jarrodwatts/claude-hud) — симпатичный HUD с дополнительной информацией о сессии (от контекста и лимитов до используемых инструментов)
+- [smartclip](https://github.com/akshaydeshraj/smartclip) — исправляет на вставке в терминал кривые копирования из Claude Code (переносы строк и всё такое)
 - `superpowers@superpowers-marketplace`
 - `everything-claude-code@everything-claude-code`
 - `context7@claude-plugins-official`

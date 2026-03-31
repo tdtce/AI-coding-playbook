@@ -56,3 +56,14 @@ book_section: "Продвинутые паттерны"
 ## Claude Code в Телеграм
 
 За своими сессиями можно следить из Телеграма, инструкция лежит [тут](https://code.claude.com/docs/en/channels). Из забавного — можно с помощью Claude Code реализовать и другие интеграции с мессенджерами — например, с Маттермостом.
+
+## Как заставить LSP-инструмент работать?
+
+У Claude Code есть встроенный LSP-тул, который по умолчанию не работает. Он позволяет Claude точнее работать с кодом, а не грепать всё подряд.
+
+[Тут](https://karanbansal.in/blog/claude-code-lsp/) есть инструкция, как его включить, например, для Питона:
+
+- Прописываем в настройках `"env": { "ENABLE_LSP_TOOL": "1" }` (хотя на версии 2.1.88 работает и без этого)
+- Устанавливаем сервер, например в питоновском энве: `pip install python-lsp-server` и делаем симлинк `ln -sf ~/.virtualenvs/myenv/bin/pyright-langserver ~/.local/bin/pyright-langserver`
+- Устанавливаем нужный плагин: `claude plugin marketplace update claude-plugins-official` и `claude plugin install pyright-lsp`
+- Попросите Claude Code проверить, работает ли инструмент LSP. Некоторые возможные проблемы описаны по ссылке выше
