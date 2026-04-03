@@ -27,6 +27,11 @@ favicon = '/favicon.ico'
 enabled = false
 
 [[menu.main]]
+name = 'Changelog'
+url = '/changelog/'
+weight = 80
+
+[[menu.main]]
 name = 'О проекте'
 url = '/about/'
 weight = 90

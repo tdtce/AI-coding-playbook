@@ -78,3 +78,11 @@ book_section: "Продвинутые паттерны"
 - Устанавливаем сервер, например в питоновском энве: `pip install python-lsp-server` и делаем симлинк `ln -sf ~/.virtualenvs/myenv/bin/pyright-langserver ~/.local/bin/pyright-langserver`
 - Устанавливаем нужный плагин: `claude plugin marketplace update claude-plugins-official` и `claude plugin install pyright-lsp`
 - Попросите Claude Code проверить, работает ли инструмент LSP. Некоторые возможные проблемы описаны по ссылке выше
+
+## Крон-джобы
+
+Claude Code умеет создавать [кроны](https://code.claude.com/docs/en/scheduled-tasks) — по сути запускать какой-то промпт в заданное время или через заданные интервалы. Можно использовать команду `/loop` или просто попросить Claude Code создать крону. Например, можно настроить ИИ-дежурного — подключить MCP к мессенджеру и Kubernetes, создать крону, которая мониторит алерты и автоматически перезапускает поды при ошибках.
+
+Из минусов таких кронов — сессия должна быть активной.
+
+![Пример: Sentry-алерт и автоматический рестарт подов](/images/advanced/cron-alert-restart.png)
