@@ -4,8 +4,6 @@ date: 2025-01-01
 type: "page"
 ---
 
-## Changelog
-
 История изменений AI Coding Playbook.
 
 ---
