@@ -27,16 +27,15 @@ book_section: "Внедрение в компанию"
 
 ```json
 {
-  "availableModels": [
-    "sonnet",
-    "opus"
-  ],
+  "channelsEnabled": true,
   "cleanupPeriodDays": 180,
   "env": {
     "SETTINGS_CHECK": "test",
-    "CLAUDE_CODE_SUBAGENT_MODEL": "opus"
+    "CLAUDE_CODE_AUTO_COMPACT_WINDOW": "200000",
+    "CLAUDE_CODE_NEW_INIT": "1",
+    "ENABLE_EXPERIMENTAL_MCP_CLI": "1",
+    "ENABLE_LSP_TOOL": "1"
   },
-  "model": "opus",
   "permissions": {
     "deny": [
       "Read(./.env)",
