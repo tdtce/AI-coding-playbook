@@ -32,9 +32,17 @@ h1 {
 
 h2 {
   color: #4a3c28;
+  margin-top: 2.5rem;
 }
 
-h3, h4, h5 {
+h3 {
+  color: #5a4a34;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd5c5;
+}
+
+h4, h5 {
   color: #5a4a34;
 }
 
