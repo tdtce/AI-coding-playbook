@@ -124,18 +124,51 @@ nav[role="navigation"] > div > div > ul > li:last-child > a:hover {
   color: #8b6914;
 }
 
-/* === Blockquotes === */
+/* === Blockquotes / Callouts === */
 blockquote {
   border-left: 4px solid #c4a95a;
   margin-left: 0;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
   background: #ece7dc;
+  border-radius: 0 6px 6px 0;
 }
 
 blockquote p {
   margin: 0.25rem 0;
   color: #4a3c28;
 }
+
+/* Callout types */
+blockquote.callout {
+  position: relative;
+  padding-left: 2.75rem;
+}
+
+blockquote.callout::before {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+blockquote.callout--warning {
+  border-left-color: #b55a3a;
+  background: #faf0ec;
+}
+blockquote.callout--warning::before { content: "\26A0\FE0F"; }
+
+blockquote.callout--tip {
+  border-left-color: #4a8c5c;
+  background: #eef5f0;
+}
+blockquote.callout--tip::before { content: "\1F4A1"; }
+
+blockquote.callout--note {
+  border-left-color: #3a7ab5;
+  background: #edf3f9;
+}
+blockquote.callout--note::before { content: "\2139\FE0F"; }
 
 /* === Footer === */
 footer {

@@ -12,3 +12,17 @@
     </a>
   </div>
 </footer>
+<script>
+document.querySelectorAll('blockquote').forEach(function(bq) {
+  var strong = bq.querySelector('p:first-child > strong:first-child');
+  if (!strong) return;
+  var text = strong.textContent.trim().replace(/:$/, '');
+  var map = {
+    'Важно': 'warning', 'Внимание': 'warning',
+    'Совет': 'tip', 'Tip': 'tip',
+    'Примечание': 'note', 'Note': 'note'
+  };
+  var type = map[text];
+  if (type) bq.classList.add('callout', 'callout--' + type);
+});
+</script>
