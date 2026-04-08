@@ -170,6 +170,40 @@ blockquote.callout--note {
 }
 blockquote.callout--note::before { content: "\2139\FE0F"; }
 
+/* === CTA Banner === */
+.cta-banner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #2c2416 0%, #4a3c28 100%);
+}
+
+.cta-banner__title {
+  margin: 0 0 0.75rem 0;
+  color: #e8dcc8;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.cta-banner__button {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: #c4a95a;
+  color: #2c2416 !important;
+  font-weight: 600;
+  font-size: 1.05rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.cta-banner__button:hover {
+  background: #d4b96a;
+  transform: translateY(-1px);
+}
+
 /* === Footer === */
 footer {
   background-color: #ece7dc !important;
