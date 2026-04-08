@@ -1,23 +1,14 @@
 {{ define "main" }}
 <div class="pa3-ns w-100-m w-60-ns center">
   <section class="flex-ns flex-wrap justify-around mt1">
-    <div class="relative mb4 pa4 bg-white">
+    <div class="relative mb4 pa4" style="background: #fdfaf4;">
 
       <h1>{{ .Title }}</h1>
       {{ .Content }}
 
-    {{ $title := "" }}
       {{ range .Pages }}
-      {{ if .Params.Book_section }}
-
-    {{ if ne $title .Params.Book_section }}
-    {{ $title = .Params.Book_section }}
-    <h2 class="pt2">{{ .Params.Book_section }}</h2>
-    {{ end }}
-
-    {{ partial "summary.html" . }}
-    {{ end }}
-    {{ end }}
+        {{ partial "summary.html" . }}
+      {{ end }}
     </div>
   </section>
 </div>
