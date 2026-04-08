@@ -102,13 +102,23 @@ nav[role="navigation"] > div > div > ul > li:last-child > a:hover {
   background: #f0e8d0;
 }
 
+/* === Section color coding === */
+.section-personal h1 { border-bottom: 3px solid #4a8c5c; display: inline-block; padding-bottom: 0.15rem; }
+.section-team h1 { border-bottom: 3px solid #3a7ab5; display: inline-block; padding-bottom: 0.15rem; }
+.section-company h1 { border-bottom: 3px solid #b55a3a; display: inline-block; padding-bottom: 0.15rem; }
+.section-advanced h1 { border-bottom: 3px solid #7a4ab5; display: inline-block; padding-bottom: 0.15rem; }
+
 /* === Links === */
 .nested-links a {
   color: #8b6914;
+  text-decoration: underline;
+  text-decoration-color: #d4c9a8;
+  text-underline-offset: 2px;
 }
 
 .nested-links a:hover {
   color: #6b5010;
+  text-decoration-color: #8b6914;
 }
 
 /* Summary links */
