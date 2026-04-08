@@ -6,6 +6,17 @@
   {{ $section := .Site.GetPage "section" .Section }}
   <article class="flex-l flex-wrap justify-between mw8 center ph3">
     <header class="mt4 w-100">
+      <nav class="breadcrumbs" aria-label="breadcrumb">
+        <a href="/">Главная</a>
+        {{ with .CurrentSection }}
+          {{ if ne .RelPermalink "/" }}
+            <span class="breadcrumbs__sep">/</span>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          {{ end }}
+        {{ end }}
+        <span class="breadcrumbs__sep">/</span>
+        <span class="breadcrumbs__current">{{ .Title }}</span>
+      </nav>
       <h1 class="f1 athelas mt3 mb3">
         {{- .Title -}}
       </h1>
