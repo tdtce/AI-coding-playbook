@@ -69,15 +69,54 @@ Claude Code может запускать субагентов — это отд
 
 ### Примеры
 
-- [copy-claude-response](https://github.com/Twizzes/copy-claude-response) — удобное копирование респонса Claude Code
 - [claude-hud](https://github.com/jarrodwatts/claude-hud) — симпатичный HUD с дополнительной информацией о сессии (от контекста и лимитов до используемых инструментов)
-- [smartclip](https://github.com/akshaydeshraj/smartclip) — исправляет на вставке в терминал кривые копирования из Claude Code (переносы строк и всё такое)
+- [smartclip](https://github.com/akshaydeshraj/smartclip) — исправляет на вставке в терминал кривые копирования из Claude Code (переносы строк и всё такое). Может потребоваться допилить под себя, вот пример фикса:
+
+```bash
+# smartclip — bash integration (fixed)
+# Fixes: strips \r (^M) and bracketed paste end sequence ^[[201~
+
+_smartclip_paste() {
+  local content=""
+  local char
+  local tail=""
+  while IFS= read -r -n 1 -t 0.05 char; do
+    tail+="$char"
+    if [[ "$tail" == *$'\e[201~' ]]; then
+      content+="${tail%$'\e[201~'}"
+      tail=""
+      break
+    fi
+    if (( ${#tail} > 64 )); then
+      content+="${tail:0:${#tail}-6}"
+      tail="${tail: -6}"
+    fi
+  done
+  content+="$tail"
+  content="${content//$'\r'/}"
+  if [[ "$content" == *$'\n'* ]]; then
+    local fixed
+    fixed="$(printf '%s' "$content" | smartclip 2>/dev/null)"
+    if [[ $? -eq 0 ]]; then
+      content="$fixed"
+    fi
+  fi
+  READLINE_LINE="${READLINE_LINE:0:$READLINE_POINT}${content}${READLINE_LINE:$READLINE_POINT}"
+  READLINE_POINT=$(( READLINE_POINT + ${#content} ))
+}
+
+if [[ "${BASH_VERSINFO[0]}" -ge 4 ]]; then
+  bind -x '"\e[200~": _smartclip_paste'
+fi
+```
 - [cc-budget](https://github.com/boyand/cc-budget) — трекинг расходов и лимитов. Можно установить как виджет для cc-statusline или claude-hud (инструкция в репозитории)
-- `superpowers@superpowers-marketplace`
-- `everything-claude-code@everything-claude-code`
-- `context7@claude-plugins-official`
-- `conversation-search@cc-conversation-search`
-- `planning-with-files@planning-with-files`
+- [camofox-browser](https://github.com/jo-inc/camofox-browser) — headless-браузер для ИИ-агентов, который позволяет обходить почти любые ограничения сайтов на автоматический скрапинг
+- [playwright](https://claude.com/plugins/playwright) — плагин для автоматизации доступа к сайтам
+- [superpowers](https://github.com/obra/superpowers-marketplace) — набор разнообразных полезных скиллов для разработки
+- [everything-claude-code](https://github.com/affaan-m/everything-claude-code) — огромный набор всего-всего
+- [context7](https://github.com/upstash/context7) — для доступа к самой актуальной документации библиотек
+- [conversation-search](https://github.com/akatz-ai/cc-conversation-search) — поиск сессий по всем проектам
+- [planning-with-files](https://github.com/othmanadi/planning-with-files) — планирование и трекинг выполнения задач через маркдаун-файлы
 
 ## Память
 
