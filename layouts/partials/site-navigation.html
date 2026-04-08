@@ -8,6 +8,10 @@
       {{ end }}
     </a>
     <div class="flex-l items-center">
+      <div class="site-search mr3">
+        <input type="text" id="search-input" class="site-search__input" placeholder="Поиск..." autocomplete="off" />
+        <div id="search-results" class="site-search__results"></div>
+      </div>
       {{ partial "i18nlist.html" . }}
       {{ if .Site.Menus.main }}
         <ul class="pl0 mr3">

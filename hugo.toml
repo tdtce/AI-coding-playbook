@@ -6,6 +6,9 @@ title = 'AI Coding Playbook'
 theme = 'ananke'
 copyright = 'AI HUB TEAM'
 
+[outputs]
+home = ['HTML', 'RSS', 'JSON']
+
 [pagination]
 pagerSize = 10000
 

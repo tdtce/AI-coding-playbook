@@ -11,7 +11,67 @@
     </a>
   </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
 <script>
+// Search
+(function() {
+  var input = document.getElementById('search-input');
+  var resultsEl = document.getElementById('search-results');
+  if (!input || !resultsEl) return;
+
+  var fuse = null;
+
+  fetch('/index.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      fuse = new Fuse(data, {
+        keys: [
+          { name: 'title', weight: 0.6 },
+          { name: 'content', weight: 0.4 }
+        ],
+        threshold: 0.5,
+        ignoreLocation: true,
+        includeMatches: true
+      });
+    });
+
+  input.addEventListener('input', function() {
+    var query = this.value.trim();
+    if (!query || !fuse) {
+      resultsEl.style.display = 'none';
+      return;
+    }
+    var results = fuse.search(query, { limit: 6 });
+    if (!results.length) {
+      resultsEl.innerHTML = '<div class="site-search__empty">Ничего не найдено</div>';
+      resultsEl.style.display = 'block';
+      return;
+    }
+    resultsEl.innerHTML = results.map(function(r) {
+      var snippet = r.item.content.substring(0, 120) + '...';
+      return '<a href="' + r.item.url + '" class="site-search__item">'
+        + '<span class="site-search__item-title">' + r.item.title + '</span>'
+        + '<span class="site-search__item-section">' + r.item.section + '</span>'
+        + '</a>';
+    }).join('');
+    resultsEl.style.display = 'block';
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.site-search')) {
+      resultsEl.style.display = 'none';
+    }
+  });
+
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      resultsEl.style.display = 'none';
+      input.blur();
+    }
+  });
+})();
+
+// Callouts
 document.querySelectorAll('blockquote').forEach(function(bq) {
   var strong = bq.querySelector('p:first-child > strong:first-child');
   if (!strong) return;
