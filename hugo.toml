@@ -6,6 +6,9 @@ title = 'AI Coding Playbook'
 theme = 'ananke'
 copyright = 'AI HUB TEAM'
 
+[outputs]
+home = ['HTML', 'RSS', 'JSON']
+
 [pagination]
 pagerSize = 10000
 
@@ -22,6 +25,8 @@ background_color_class = 'bg-book'
 body_classes = 'avenir bg-book'
 custom_css = ['css/custom.css']
 favicon = '/favicon.ico'
+description = 'Практическое руководство по внедрению ИИ-инструментов для кодинга в компанию'
+images = ['images/print_machine.png']
 
 [params.banner]
 enabled = false
