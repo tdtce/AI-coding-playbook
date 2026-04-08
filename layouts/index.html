@@ -1,7 +1,5 @@
 {{ define "main" }}
-<div class="pa3-ns w-100-m w-60-ns center">
-  <section class="flex-ns flex-wrap justify-around mt1">
-    <div class="relative mb4 pa4">
+<div class="w-100-m w-60-ns center pa4">
 
       <img src="{{ relURL "images/print_machine.png" }}" alt="AI Coding Playbook" class="db mb4" style="max-width: 100%; height: auto;" />
 
@@ -18,48 +16,85 @@
         Последнее обновление: 07.04.2026
       </p>
 
-      {{ with .Site.GetPage "/personal" }}
-        {{ if .Pages }}
-        <h2 class="pt4">Личное использование</h2>
-        Начни отсюда, если у тебя не так много опыта с ИИ-инструментами
-        {{ range .Pages }}
-          {{ partial "summary.html" . }}
-        {{ end }}
-        {{ end }}
-      {{ end }}
+      <div class="section-cards">
 
-      {{ with .Site.GetPage "/team" }}
-        {{ if .Pages }}
-        <h2 class="pt4">Уровень команды</h2>
-        Учим команду жить без ИИ-слопа в проекте
-        {{ range .Pages }}
-          {{ partial "summary.html" . }}
+        {{ with .Site.GetPage "/personal" }}
+          {{ if .Pages }}
+          <div class="section-card section-card--personal">
+            <div class="section-card__header">
+              <span class="section-card__icon">&#128100;</span>
+              <div>
+                <h2 class="section-card__title">Личное использование</h2>
+                <p class="section-card__desc">Начни отсюда, если у тебя не так много опыта с ИИ-инструментами</p>
+              </div>
+            </div>
+            <ul class="section-card__links">
+              {{ range .Pages }}
+              <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+              {{ end }}
+            </ul>
+          </div>
+          {{ end }}
         {{ end }}
-        {{ end }}
-      {{ end }}
 
-      {{ with .Site.GetPage "/company" }}
-        {{ if .Pages }}
-        <h2 class="pt4">Уровень компании</h2>
-        Чтобы не положить прод и не подарить все пароли Дарио Амодею нужно всего лишь...
-        {{ range .Pages }}
-          {{ partial "summary.html" . }}
+        {{ with .Site.GetPage "/team" }}
+          {{ if .Pages }}
+          <div class="section-card section-card--team">
+            <div class="section-card__header">
+              <span class="section-card__icon">&#128101;</span>
+              <div>
+                <h2 class="section-card__title">Уровень команды</h2>
+                <p class="section-card__desc">Учим команду жить без ИИ-слопа в проекте</p>
+              </div>
+            </div>
+            <ul class="section-card__links">
+              {{ range .Pages }}
+              <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+              {{ end }}
+            </ul>
+          </div>
+          {{ end }}
         {{ end }}
-        {{ end }}
-      {{ end }}
 
-      {{ with .Site.GetPage "/advanced" }}
-        {{ if .Pages }}
-        <h2 class="pt4">Продвинутые техники</h2>
-        Добиваем последние проценты эффективности
-        {{ range .Pages }}
-          {{ partial "summary.html" . }}
+        {{ with .Site.GetPage "/company" }}
+          {{ if .Pages }}
+          <div class="section-card section-card--company">
+            <div class="section-card__header">
+              <span class="section-card__icon">&#127970;</span>
+              <div>
+                <h2 class="section-card__title">Уровень компании</h2>
+                <p class="section-card__desc">Чтобы не положить прод и не подарить все пароли Дарио Амодею нужно всего лишь...</p>
+              </div>
+            </div>
+            <ul class="section-card__links">
+              {{ range .Pages }}
+              <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+              {{ end }}
+            </ul>
+          </div>
+          {{ end }}
         {{ end }}
+
+        {{ with .Site.GetPage "/advanced" }}
+          {{ if .Pages }}
+          <div class="section-card section-card--advanced">
+            <div class="section-card__header">
+              <span class="section-card__icon">&#128640;</span>
+              <div>
+                <h2 class="section-card__title">Продвинутые техники</h2>
+                <p class="section-card__desc">Добиваем последние проценты эффективности</p>
+              </div>
+            </div>
+            <ul class="section-card__links">
+              {{ range .Pages }}
+              <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+              {{ end }}
+            </ul>
+          </div>
+          {{ end }}
         {{ end }}
-      {{ end }}
 
+      </div>
 
-    </div>
-  </section>
 </div>
 {{ end }}

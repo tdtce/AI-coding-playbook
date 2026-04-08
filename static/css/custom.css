@@ -169,6 +169,95 @@ footer a {
   color: #5a4a34 !important;
 }
 
+/* === Homepage layout fix === */
+main[role="main"] {
+  padding-bottom: 2rem !important;
+}
+
+/* === Section cards on homepage === */
+.section-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.section-card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border-left: 4px solid #c4a95a;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.section-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.section-card--personal { border-left-color: #4a8c5c; }
+.section-card--team     { border-left-color: #3a7ab5; }
+.section-card--company  { border-left-color: #b55a3a; }
+.section-card--advanced { border-left-color: #7a4ab5; }
+
+.section-card__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.section-card__icon {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.section-card__title {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 1.35rem;
+  color: #2c2416;
+}
+
+.section-card__desc {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.95rem;
+  color: #7a6b52;
+}
+
+.section-card__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.section-card__links li {
+  padding: 0.4rem 0;
+  border-top: 1px solid #ece7dc;
+}
+
+.section-card__links li:first-child {
+  border-top: none;
+}
+
+.section-card__links a {
+  color: #3d3529;
+  text-decoration: none;
+  font-size: 1.05rem;
+  display: block;
+  padding: 0.15rem 0 0.15rem 0.5rem;
+  border-radius: 4px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.section-card__links a:hover {
+  color: #8b6914;
+  background: #f9f5ec;
+}
+
 /* === Mobile adaptations === */
 @media screen and (max-width: 60em) {
 
