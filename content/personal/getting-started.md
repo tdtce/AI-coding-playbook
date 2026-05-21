@@ -39,6 +39,8 @@ alias unsetproxy='unset HTTP_PROXY; unset HTTPS_PROXY; unset NO_PROXY; unset htt
 
 Теперь в терминале достаточно набрать setproxy и потом уже claude.
 
+Чтобы точно не забыть, можно сделать ещё проще — положить в `~/.claude/settings.json` в секцию `env` переменные `http_proxy` и `https_proxy`.
+
 ## Работа с CC в IDE
 
 Есть плагины для популярных IDE (VSCode, PyCharm). Они позволяют удобно изучать изменения, которые сделал агент, прямо в IDE.

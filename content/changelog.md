@@ -8,6 +8,10 @@ type: "page"
 
 ---
 
+### 21 мая 2026
+- [Безопасность](/company/security/) — добавлена bash-обёртка для авто-подгрузки `.env` при запуске `claude`; в раздел «Продвинутые режимы работы» добавлено упоминание команды `/goal` в связке с auto mode
+- [Начало работы с Claude Code](/personal/getting-started/) — добавлен совет прописывать `http_proxy`/`https_proxy` в `~/.claude/settings.json`
+
 ### 17 апреля 2026
 - [Безопасность](/company/security/) — новый раздел «Продвинутые режимы работы»: YOLO, Auto mode, /fewer-permission-prompts
 - [Продвинутые фишки](/advanced/advanced-features/) — добавлена команда `/rewind` в раздел «Управление контекстом»
