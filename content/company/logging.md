@@ -58,7 +58,7 @@ book_section: "Внедрение в компанию"
 
 После подключения коллектора к Grafana вы получаете готовый дашборд с использованием по пользователям и моделям, токенами и другой статистикой.
 
-![logging-2026-06-29-13-33-36.png](attachments/logging-2026-06-29-13-33-36.png)
+![Дашборд использования Claude Code на основе OpenTelemetry](/images/logging/otel-grafana-dashboard.png)
 
 Плюсы:
 
