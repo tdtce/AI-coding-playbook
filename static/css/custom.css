@@ -115,6 +115,7 @@ nav[role="navigation"] > div > div > ul > li:last-child > a:hover {
 .section-team h1 { border-bottom: 3px solid #3a7ab5; display: inline-block; padding-bottom: 0.15rem; }
 .section-company h1 { border-bottom: 3px solid #b55a3a; display: inline-block; padding-bottom: 0.15rem; }
 .section-advanced h1 { border-bottom: 3px solid #7a4ab5; display: inline-block; padding-bottom: 0.15rem; }
+.section-agents h1 { border-bottom: 3px solid #b5852f; display: inline-block; padding-bottom: 0.15rem; }
 
 /* === Links === */
 .nested-links a {
@@ -450,9 +451,11 @@ main[role="main"] {
   transform: translateY(-1px);
 }
 
+.section-card--non-tech { border-left-color: #2f9c8f; }
 .section-card--personal { border-left-color: #4a8c5c; }
 .section-card--team     { border-left-color: #3a7ab5; }
 .section-card--company  { border-left-color: #b55a3a; }
+.section-card--agents   { border-left-color: #b5852f; }
 .section-card--advanced { border-left-color: #7a4ab5; }
 
 .section-card__header {

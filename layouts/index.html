@@ -5,7 +5,7 @@
 
       <h1>AI Coding Playbook</h1>
       <p class="f4 f5-m" style="word-wrap: break-word;">
-        Практическое руководство по внедрению ИИ-инструментов для кодинга в компанию. Основано на Claude Code, но применимо с поправками и для других ИИ-агентов. В дальнейшем планируется пополнение базы знаний информацией, специфичной для других инструментов.
+        Практическое руководство по внедрению ИИ-инструментов в компанию — в первую очередь в разработку. Основано на Claude Code, но применимо с поправками и для других ИИ-агентов. Есть и отдельный раздел для компаний, где разработки нет вообще. В дальнейшем планируется пополнение базы знаний информацией, специфичной для других инструментов.
       </p>
 
       <p class="f5 i gray mt2">
@@ -13,6 +13,25 @@
       </p>
 
       <div class="section-cards">
+
+        {{ with .Site.GetPage "/non-tech" }}
+          {{ if .Pages }}
+          <div class="section-card section-card--non-tech">
+            <div class="section-card__header">
+              <span class="section-card__icon">&#127793;</span>
+              <div>
+                <h2 class="section-card__title">Не-айтишникам</h2>
+                <p class="section-card__desc">Если в конторе никто не пишет код — начни отсюда</p>
+              </div>
+            </div>
+            <ul class="section-card__links">
+              {{ range .Pages }}
+              <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+              {{ end }}
+            </ul>
+          </div>
+          {{ end }}
+        {{ end }}
 
         {{ with .Site.GetPage "/personal" }}
           {{ if .Pages }}
@@ -71,6 +90,25 @@
           {{ end }}
         {{ end }}
 
+        {{ with .Site.GetPage "/agents" }}
+          {{ if .Pages }}
+          <div class="section-card section-card--agents">
+            <div class="section-card__header">
+              <span class="section-card__icon">&#129302;</span>
+              <div>
+                <h2 class="section-card__title">Агенты для процессов</h2>
+                <p class="section-card__desc">Делаем агентов под рутину команды и компании</p>
+              </div>
+            </div>
+            <ul class="section-card__links">
+              {{ range .Pages }}
+              <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+              {{ end }}
+            </ul>
+          </div>
+          {{ end }}
+        {{ end }}
+
         {{ with .Site.GetPage "/advanced" }}
           {{ if .Pages }}
           <div class="section-card section-card--advanced">
@@ -93,7 +131,7 @@
       </div>
 
       <p class="f6 gray mt3 tc">
-        Последнее обновление: 24.07.2026
+        Последнее обновление: 20.10.2026
       </p>
 
 </div>

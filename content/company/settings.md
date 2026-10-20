@@ -32,9 +32,7 @@ book_section: "Внедрение в компанию"
   "env": {
     "SETTINGS_CHECK": "test",
     "CLAUDE_CODE_AUTO_COMPACT_WINDOW": "200000",
-    "CLAUDE_CODE_NEW_INIT": "1",
-    "ENABLE_EXPERIMENTAL_MCP_CLI": "1",
-    "ENABLE_LSP_TOOL": "1"
+    "CLAUDE_CODE_NEW_INIT": "1"
   },
   "permissions": {
     "deny": [
@@ -88,6 +86,5 @@ book_section: "Внедрение в компанию"
 - cleanupPeriodDays - можно дольше хранить сессии (скажем, 180 дней)
 - Постоянные переменные можно прокинуть в раздел env, например:
   - CLAUDE_CODE_SUBAGENT_MODEL - можно поменять модель субагента на Opus, если у вас хорошая подписка
-  - ENABLE_EXPERIMENTAL_MCP_CLI - экономит кучу контекста, Claude Code читает описания тулзов из MCP только по требованию
   - CLAUDE_CODE_NEW_INIT - новая интерактивная версия команды /init
 - spinnerVerbs - можно поставить [прикольные фразочки](https://github.com/i1kazantsev/claude-code-spinner) на раздумья Клода
