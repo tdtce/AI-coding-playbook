@@ -39,7 +39,7 @@ alias unsetproxy='unset HTTP_PROXY; unset HTTPS_PROXY; unset NO_PROXY; unset htt
 
 Теперь в терминале достаточно набрать setproxy и потом уже claude.
 
-Чтобы точно не забыть, можно сделать ещё проще — положить в `~/.claude/settings.json` в секцию `env` переменные `http_proxy` и `https_proxy`.
+Чтобы точно не забыть, можно сделать ещё проще - положить в `~/.claude/settings.json` в секцию `env` переменные `http_proxy` и `https_proxy`.
 
 > **Про оплату:** крайне рекомендуем регистрировать и оплачивать аккаунт без помощи реселлеров и посредников, а также не шарить аккаунты с друзьями и коллегами. Так вы многократно снижаете вероятность бана. При самостоятельной регистрации может понадобиться купить виртуальный номер, чтоб получить SMS - например, через сервис [SMS Man](https://sms-man.com/) (используйте Premium SMS).
 
@@ -47,7 +47,7 @@ alias unsetproxy='unset HTTP_PROXY; unset HTTPS_PROXY; unset NO_PROXY; unset htt
 
 Есть плагины для популярных IDE (VSCode, PyCharm). Они позволяют удобно изучать изменения, которые сделал агент, прямо в IDE.
 
-Ещё один вариант — скачать [Zed](https://zed.dev/download), симпатичный IDE с нативной интеграцией с CC через [ACP](https://agentclientprotocol.com/get-started/introduction).
+Ещё один вариант - скачать [Zed](https://zed.dev/download), симпатичный IDE с нативной интеграцией с CC через [ACP](https://agentclientprotocol.com/get-started/introduction).
 
 ## Советы новичкам
 - Не бросайтесь генерить длиннющий CLAUDE.md, устанавливать кучу плагинов и подключать все MCP. Двигайтесь постепенно, по мере необходимости
