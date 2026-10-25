@@ -429,6 +429,58 @@ main[role="main"] {
   padding-bottom: 2rem !important;
 }
 
+/* === Platform promo on homepage === */
+.platform-promo {
+  display: block;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #2c2416 0%, #4a3c28 100%);
+  text-decoration: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.platform-promo:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.platform-promo span {
+  display: block;
+}
+
+.platform-promo__label {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c4a95a;
+}
+
+.platform-promo__title {
+  margin-top: 0.35rem;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: #f5f0e8;
+}
+
+.platform-promo__desc {
+  margin-top: 0.5rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #e8dcc8;
+}
+
+.platform-promo__more {
+  margin-top: 0.9rem;
+  font-weight: 600;
+  color: #c4a95a;
+}
+
+.platform-promo:hover .platform-promo__more {
+  color: #d4b96a;
+}
+
 /* === Section cards on homepage === */
 .section-cards {
   display: flex;
